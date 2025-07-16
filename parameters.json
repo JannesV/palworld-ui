@@ -1,7 +1,0 @@
-{
-  "TILE_URL": "https://palworld.gg/images/tiles/{z}/{x}/{y}.png",
-  "ZOOM": 6,
-  "TILE_FOLDER": "tiles/6/",
-  "OUTPUT_FILENAME": "output/out.png",
-  "DISTORTED_OUTPUT": "output/distorted.png"
-}

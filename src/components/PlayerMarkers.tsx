@@ -1,5 +1,5 @@
 import { FeatureGroup } from "react-leaflet";
-import { trpc, type RouterOutput } from "../utils/trpc";
+import { trpc } from "../utils/trpc";
 import { CustomMarker } from "./CustomMarker";
 import { useSubscription } from "@trpc/tanstack-react-query";
 
@@ -33,20 +33,20 @@ export function PlayerMarkers() {
     trpc.players_subscription.subscriptionOptions()
   );
 
+  const players = playersSubscription.data?.data || [];
+
   return (
     <FeatureGroup pane="markerPane">
-      {(playersSubscription.data?.data as RouterOutput["players"])?.map(
-        (player) => {
-          const position = mapCoordinates(player.location_x, player.location_y);
-          return (
-            <CustomMarker
-              key={player.playerId}
-              player={player}
-              position={position}
-            />
-          );
-        }
-      )}
+      {players.map((player) => {
+        const position = mapCoordinates(player.location_x, player.location_y);
+        return (
+          <CustomMarker
+            key={player.playerId}
+            player={player}
+            position={position}
+          />
+        );
+      })}
     </FeatureGroup>
   );
 }

@@ -66,7 +66,7 @@ export const appRouter = t.router({
       yield tracked(JSON.stringify(mappedPlayers), mappedPlayers);
 
       // Wait for a bit before polling again to avoid hammering the database.
-      await sleep(1000);
+      await sleep(2000);
     }
   }),
 });
