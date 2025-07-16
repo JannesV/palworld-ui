@@ -1,0 +1,12 @@
+/* Ensure the map takes full height */
+#root {
+  height: 100vh;
+  width: 100vw;
+}
+
+/* Override any default margins/padding */
+body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
